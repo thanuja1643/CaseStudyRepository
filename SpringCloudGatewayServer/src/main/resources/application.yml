@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: FOLLOWERS-APPLICATION
+        uri: http://localhost:8283/
+        predicates:
+        - Path=/pixofollower/**
+      - id: MEDIA-APPLICATION
+        uri: http://localhost:8989/
+        predicates:
+        - Path=/media/**
+      - id: USER-APPLICATION
+        uri: http://localhost:8182/
+        predicates:
+        - Path=/pixoauth/*
